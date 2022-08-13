@@ -10,11 +10,5 @@ public interface ArticleService {
 
     void addArticle(Article article);
 
-    Collection<Article> getByCategory(String category);
-
-    Collection<Article> getByTags(Tag tag);
-
-    Article getByUrl(String url);
-
     void publish(String id);
 }
