@@ -3,9 +3,11 @@ package org.example.blog.domain;
 import lombok.RequiredArgsConstructor;
 import org.example.blog.ports.ArticleRepository;
 import org.example.blog.ports.ArticleService;
+import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
+@Service
 @RequiredArgsConstructor
 public class BlogService implements ArticleService
 {

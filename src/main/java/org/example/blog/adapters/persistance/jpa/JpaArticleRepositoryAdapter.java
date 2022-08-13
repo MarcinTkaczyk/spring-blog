@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
+import java.util.UUID;
 
 @Transactional
 @Component
@@ -20,7 +21,9 @@ public class JpaArticleRepositoryAdapter implements ArticleRepository {
 
     @Override
     public Article save(Article article) {
+
         var entity = articleMapper.toEntity(article);
+        entity.setId(UUID.randomUUID().toString());
         articleRepository.save(entity);
         return articleMapper.toDomain(entity);
     }

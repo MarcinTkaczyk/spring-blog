@@ -1,5 +1,8 @@
 package org.example.blog.adapters.persistance.jpa;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.Value;
 import org.example.blog.domain.ArticleMode;
 import org.example.blog.domain.Tag;
 
@@ -11,11 +14,13 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
 public class ArticleEntity {
 
     @Id
-    @GeneratedValue
     String id;
+
     String category;
     LocalDate publicationDate;
     String title;
