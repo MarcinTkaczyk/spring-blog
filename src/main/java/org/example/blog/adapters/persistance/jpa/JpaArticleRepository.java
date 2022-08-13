@@ -8,12 +8,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.Collection;
+import java.util.List;
 
 public interface JpaArticleRepository extends JpaRepository<ArticleEntity, String> {
 
-    Collection<ArticleEntity> getByCategoryOrderByPublicationDate(String category);
+    List<ArticleEntity> getByCategoryOrderByPublicationDate(String category);
 
-    Collection<ArticleEntity> getByTagListContainsOrderByPublicationDate(Tag tag);
+    List<ArticleEntity> getByTagListContainsOrderByPublicationDate(String tag);
 
     ArticleEntity getAllByUrl(String url);
 

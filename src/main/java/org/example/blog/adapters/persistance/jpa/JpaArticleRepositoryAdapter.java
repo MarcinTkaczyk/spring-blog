@@ -19,27 +19,33 @@ public class JpaArticleRepositoryAdapter implements ArticleRepository {
     private final JpaPersistenceArticleMapper articleMapper;
 
     @Override
-    public void save(Article article) {
-
+    public Article save(Article article) {
+        var entity = articleMapper.toEntity(article);
+        articleRepository.save(entity);
+        return articleMapper.toDomain(entity);
     }
 
     @Override
     public Collection<Article> getByCategory(String category) {
-        return null;
+        var articleList = articleRepository.getByCategoryOrderByPublicationDate(category);
+        return articleMapper.toDomain(articleList);
     }
 
     @Override
     public Collection<Article> getByTags(Tag tag) {
-        return null;
+
+        var articleList = articleRepository.getByTagListContainsOrderByPublicationDate(tag.name());
+        return articleMapper.toDomain(articleList);
     }
 
     @Override
     public Article getByUrl(String url) {
-        return null;
+        var articleList = articleRepository.getAllByUrl(url);
+        return articleMapper.toDomain(articleList);
     }
 
     @Override
     public void switchMode(String id, ArticleMode mode) {
-
+        articleRepository.switchMode(id, mode.name());
     }
 }

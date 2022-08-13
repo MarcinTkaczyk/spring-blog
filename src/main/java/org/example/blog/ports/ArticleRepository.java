@@ -9,7 +9,7 @@ import java.util.Collection;
 
 public interface ArticleRepository {
 
-    void save(Article article);
+    Article save(Article article);
 
     Collection<Article> getByCategory(String category);
 
