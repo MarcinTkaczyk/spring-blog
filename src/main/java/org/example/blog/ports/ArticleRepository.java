@@ -20,4 +20,6 @@ public interface ArticleRepository {
     void switchMode(String id, ArticleMode mode);
 
 
+
+
 }

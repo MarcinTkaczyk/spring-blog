@@ -16,5 +16,5 @@ public interface ArticleService {
 
     Article getByUrl(String url);
 
-    void switchMode(String id, ArticleMode mode);
+    void publish(String id);
 }
